@@ -14,6 +14,8 @@ public class JetsApplication {
 	}
 
 	public static void displayUserMenu() {
+			
+				
 		AirField t = new AirField();
 		
 		FighterJet f = new FighterJet(null, 0, 0, 0);
@@ -50,10 +52,12 @@ public class JetsApplication {
 			
 			break;
 		case 3:
+			t.fastestJet();
 			break;
 		case 4:
 			break;
 		case 5:
+		
 			break;
 		case 6:
 			break;
@@ -77,6 +81,35 @@ public class JetsApplication {
 				price = sc.nextLong();
 				f = new FighterJet(model, speed, range, price);
 				t.currentList(f);
+				break;
+			case "c":
+				System.out.println("Enter model");
+				model = sc.next();
+				System.out.println("Enter speed");
+				speed = sc.nextDouble();
+				System.out.println("Enter range");
+				range = sc.nextInt();
+				System.out.println("Enter price");
+				price = sc.nextLong();
+				c = new CargoPlane(model, speed, range, price);
+				t.currentList(c);
+				break;
+			case "b":
+				System.out.println("Enter model");
+				model = sc.next();
+				System.out.println("Enter speed");
+				speed = sc.nextDouble();
+				System.out.println("Enter range");
+				range = sc.nextInt();
+				System.out.println("Enter price");
+				price = sc.nextLong();
+				b = new BasicJet(model, speed, range, price);
+				t.currentList(b);
+				break;
+			default:
+				System.out.println("Not an option");
+				JetsApplication.displayUserMenu();
+					
 				
 			}
 			break;
