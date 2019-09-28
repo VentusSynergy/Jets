@@ -1,22 +1,24 @@
 package com.skilldistillery.jets.app;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class JetsApplication {
-	private AirField fl;
 
 	public static void main(String[] args) {
+		AirField fl = new AirField();
+		fl.jetList();
 		displayUserMenu();
-		launch();
 
 	}
 
 	public static void displayUserMenu() {
+		AirField t = new AirField();
+		
+		FighterJet f = new FighterJet(null, 0, 0, 0);
+		CargoPlane c;
+		BasicJet b;
 		Scanner sc = new Scanner(System.in);
 		int input = 1;
 		
@@ -39,11 +41,13 @@ public class JetsApplication {
 			}
 		} while (input != 1 && input != 2 && input != 3 && input != 4 && input != 5 && input != 6 
 				&& input != 7 && input != 8 && input != 9);
-		System.out.println("made");
 		switch(input) {
 		case 1:
+			launch();
 			break;
 		case 2:
+			f.fly();
+			
 			break;
 		case 3:
 			break;
@@ -54,6 +58,27 @@ public class JetsApplication {
 		case 6:
 			break;
 		case 7:
+			String typeJet;
+			System.out.println("Enter \"f\" for fighter jet, \"c\" for cargo plane, or \"b\" for basic jet");
+			typeJet = sc.next();
+			switch(typeJet) {
+			case "f":
+				String model;
+				double speed;
+				int range;
+				long price;
+				System.out.println("Enter model");
+				model = sc.next();
+				System.out.println("Enter speed");
+				speed = sc.nextDouble();
+				System.out.println("Enter range");
+				range = sc.nextInt();
+				System.out.println("Enter price");
+				price = sc.nextLong();
+				f = new FighterJet(model, speed, range, price);
+				t.currentList(f);
+				
+			}
 			break;
 		case 8:
 			break;
@@ -67,50 +92,7 @@ public class JetsApplication {
 	}
 
 	public static void launch() {
-		FileReader fr = null;
-		String fileName = "jet.txt";
-		List<Jet> jets = new ArrayList<>();
-
-
-		try {
-			fr = new FileReader(fileName);
-			BufferedReader br = new BufferedReader(fr);
-			String fileRead = br.readLine();
-			
-			while(fileRead != null) {
-					String[] file = fileRead.split(", ");
-					String tempModel = file[0];
-					double tempSpeed = Double.parseDouble(file[1]);
-					int tempRange = Integer.parseInt(file[2]);
-					long tempPrice = Long.parseLong(file[3]);
-					
-					if(tempModel.charAt(0) == 70) {
-						Jet tempObj = new FighterJet(tempModel, tempSpeed, tempRange, tempPrice);
-						jets.add(tempObj);
-						
-						fileRead = br.readLine();
-					}
-					else if(tempModel.charAt(0) == 67) {
-						Jet tempObj = new CargoPlane(tempModel, tempSpeed, tempRange, tempPrice);
-						jets.add(tempObj);
-						
-						fileRead = br.readLine();
-						
-					}
-					else if(tempModel.charAt(0) == 66) {
-						Jet tempObj = new BasicJet(tempModel, tempSpeed, tempRange, tempPrice);
-						jets.add(tempObj);
-						
-						fileRead = br.readLine();
-						
-					}
-			}
-
-			br.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		System.out.println(jets);
+		displayUserMenu();
 
 	}
 

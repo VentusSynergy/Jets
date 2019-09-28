@@ -2,8 +2,8 @@ package com.skilldistillery.jets.app;
 
 public abstract class Jet {
 	private String model;
-	private double speed;
-	private int range;
+	protected double speed;
+	protected int range;
 	private long price;
 	
 	public Jet(String model, double speed, int range, long price) {
@@ -14,7 +14,13 @@ public abstract class Jet {
 		this.price = price;
 	}
 	
-	public abstract void fly();
+	public Jet() {
+		
+	}
+
+
+	public void fly() {
+	}
 	
 	public String getModel() {
 		return model;
