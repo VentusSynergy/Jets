@@ -11,8 +11,8 @@ public class JetsApplication {
 	private AirField fl;
 
 	public static void main(String[] args) {
-		launch();
 		displayUserMenu();
+		launch();
 
 	}
 
@@ -70,21 +70,40 @@ public class JetsApplication {
 		FileReader fr = null;
 		String fileName = "jet.txt";
 		List<Jet> jets = new ArrayList<>();
-		String currentJet = "";
 
 
 		try {
 			fr = new FileReader(fileName);
 			BufferedReader br = new BufferedReader(fr);
-
-
-			for (int i = 0; i < 5; i++) {
-				fr = new FileReader(fileName);
-				br = new BufferedReader(fr);
-				currentJet = br.readLine();
-				
-				System.out.println(currentJet);
-
+			String fileRead = br.readLine();
+			
+			while(fileRead != null) {
+					String[] file = fileRead.split(", ");
+					String tempModel = file[0];
+					double tempSpeed = Double.parseDouble(file[1]);
+					int tempRange = Integer.parseInt(file[2]);
+					long tempPrice = Long.parseLong(file[3]);
+					
+					if(tempModel.charAt(0) == 70) {
+						Jet tempObj = new FighterJet(tempModel, tempSpeed, tempRange, tempPrice);
+						jets.add(tempObj);
+						
+						fileRead = br.readLine();
+					}
+					else if(tempModel.charAt(0) == 67) {
+						Jet tempObj = new CargoPlane(tempModel, tempSpeed, tempRange, tempPrice);
+						jets.add(tempObj);
+						
+						fileRead = br.readLine();
+						
+					}
+					else if(tempModel.charAt(0) == 66) {
+						Jet tempObj = new BasicJet(tempModel, tempSpeed, tempRange, tempPrice);
+						jets.add(tempObj);
+						
+						fileRead = br.readLine();
+						
+					}
 			}
 
 			br.close();

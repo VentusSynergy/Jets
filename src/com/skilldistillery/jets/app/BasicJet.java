@@ -11,4 +11,10 @@ public class BasicJet extends Jet {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "BasicJet [getModel()=" + getModel() + ", getSpeed()=" + getSpeed() + ", getRange()=" + getRange()
+				+ ", getPrice()=" + getPrice() + "]";
+	}
+
 }
