@@ -5,15 +5,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class AirField {
 	static List<Jet> jets = new ArrayList<>();
-	
+
 	public AirField() {
-		
+
 	}
 
-	public void jetList() {
+	public void oldList() {
 		FileReader fr = null;
 		String fileName = "jet.txt";
 
@@ -56,7 +57,12 @@ public class AirField {
 		}
 	}
 
-	public void currentList(Jet f) {
+	public void currentList() {
+		System.out.println(jets);
+		JetsApplication.displayUserMenu();
+	}
+
+	public void addToList(Jet f) {
 		jets.add(f);
 		System.out.println(jets);
 		JetsApplication.displayUserMenu();
@@ -73,12 +79,78 @@ public class AirField {
 				fastestSpeed = currentSpeed;
 				j = jets.get(i);
 			}
-			
+
 		}
 		System.out.println("Fastest jet: " + j);
 		JetsApplication.displayUserMenu();
 
 	}
-	
+
+	public void highestRange() {
+		System.out.println(jets.size());
+		Jet j = null;
+		int longestRange = 0;
+		for (int i = 0; i < jets.size(); i++) {
+			int currentRange = jets.get(i).getRange();
+			if (currentRange > longestRange) {
+				longestRange = currentRange;
+				j = jets.get(i);
+			}
+
+		}
+		System.out.println("Jet with longest range: " + j);
+		JetsApplication.displayUserMenu();
+
+	}
+
+	public void deleteJet() {
+		Scanner sc = new Scanner(System.in);
+		int input;
+
+		System.out.println("Choose by index to delete jet :( ");
+		input = sc.nextInt();
+		jets.remove(input);
+		JetsApplication.displayUserMenu();
+
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

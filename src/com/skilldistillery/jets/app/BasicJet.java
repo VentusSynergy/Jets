@@ -6,17 +6,15 @@ public class BasicJet extends Jet {
 		super(model, speed, range, price);
 	}
 
-	@Override
-	public void fly() {
+	public void fly(double speed, int range) {
 		
 		
 		
 	}
 
-	@Override
-	public String toString() {
-		return "Basic Jet Model: " + getModel() + ", Speed: " + getSpeed() + " mph Range: " + getRange()
-		+ " mi Price: $" + getPrice() + "]\n";
-	}
+//	public String toString() {
+//		return "Basic Jet Model: " + getModel() + ", Speed: " + getSpeed() + " mph Range: " + getRange()
+//		+ " mi Price: $" + getPrice() + "]\n";
+//	}
 
 }

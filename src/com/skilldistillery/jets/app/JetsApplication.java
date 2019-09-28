@@ -8,19 +8,19 @@ public class JetsApplication {
 
 	public static void main(String[] args) {
 		AirField fl = new AirField();
-		fl.jetList();
+		fl.oldList();
 		displayUserMenu();
 
 	}
 
 	public static void displayUserMenu() {
-			
+		Jet fli = null;
 				
 		AirField t = new AirField();
 		
 		FighterJet f = new FighterJet(null, 0, 0, 0);
-		CargoPlane c;
-		BasicJet b;
+		CargoPlane c = new CargoPlane(null, 0, 0, 0);
+		BasicJet b = new BasicJet(null, 0, 0, 0);
 		Scanner sc = new Scanner(System.in);
 		int input = 1;
 		
@@ -45,21 +45,26 @@ public class JetsApplication {
 				&& input != 7 && input != 8 && input != 9);
 		switch(input) {
 		case 1:
-			launch();
+			t.currentList();
 			break;
 		case 2:
 			f.fly();
+			b.fly();
+			c.fly();
 			
 			break;
 		case 3:
 			t.fastestJet();
 			break;
 		case 4:
+			t.highestRange();
 			break;
 		case 5:
+			c.loadCargo();
 		
 			break;
 		case 6:
+			f.fight();
 			break;
 		case 7:
 			String typeJet;
@@ -80,7 +85,7 @@ public class JetsApplication {
 				System.out.println("Enter price");
 				price = sc.nextLong();
 				f = new FighterJet(model, speed, range, price);
-				t.currentList(f);
+				t.addToList(f);
 				break;
 			case "c":
 				System.out.println("Enter model");
@@ -92,7 +97,7 @@ public class JetsApplication {
 				System.out.println("Enter price");
 				price = sc.nextLong();
 				c = new CargoPlane(model, speed, range, price);
-				t.currentList(c);
+				t.addToList(c);
 				break;
 			case "b":
 				System.out.println("Enter model");
@@ -104,7 +109,7 @@ public class JetsApplication {
 				System.out.println("Enter price");
 				price = sc.nextLong();
 				b = new BasicJet(model, speed, range, price);
-				t.currentList(b);
+				t.addToList(b);
 				break;
 			default:
 				System.out.println("Not an option");
@@ -114,6 +119,7 @@ public class JetsApplication {
 			}
 			break;
 		case 8:
+			t.deleteJet();
 			break;
 		case 9:
 			sc.close();

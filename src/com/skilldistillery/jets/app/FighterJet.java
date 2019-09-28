@@ -11,21 +11,21 @@ public class FighterJet extends Jet implements CombatReady {
 	@Override
 	public void fly() {
 		
-		double time = range/speed;
-		System.out.println(time);
+		
 		
 		
 
 	}
 	
 	public void fight() {
+		System.out.println("Ready to fight !!!\n");
+		JetsApplication.displayUserMenu();
 		
 	}
 
-	@Override
-	public String toString() {
-		return "FighterJet Model: " + getModel() + ", Speed: " + getSpeed() + " mph " + "Range: " + getRange()
-				+ " mi Price: $" + getPrice() + "]\n";
-	}
+//	public String toString() {
+//		return "FighterJet Model: " + getModel() + ", Speed: " + getSpeed() + " mph " + "Range: " + getRange()
+//				+ " mi Price: $" + getPrice() + "]\n";
+//	}
 
 }

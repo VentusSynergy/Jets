@@ -4,6 +4,12 @@ public abstract class Jet {
 	private String model;
 	protected double speed;
 	protected int range;
+	
+	public String toString() {
+		return "Jet Model: " + getModel() + ", Speed: " + getSpeed() + " mph " + "Range: " + getRange()
+		+ " mi Price: $" + getPrice() + "]\n";
+	}
+
 	private long price;
 	
 	public Jet(String model, double speed, int range, long price) {
