@@ -12,7 +12,6 @@ public class FighterJet extends Jet implements CombatReady {
 
 	@Override
 	public void fly(double t) {
-		super.fly(t);
 		System.out.println("Flight time: " + t + " hours\n");
 
 	}

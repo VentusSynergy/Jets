@@ -24,8 +24,7 @@ public abstract class Jet {
 
 	}
 
-	public void fly(double t) {
-	}
+	public abstract void fly(double t);
 
 	public String getModel() {
 		return model;
