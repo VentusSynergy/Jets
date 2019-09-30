@@ -2,16 +2,16 @@ package com.skilldistillery.jets.app;
 
 public abstract class Jet {
 	private String model;
-	protected double speed;
-	protected int range;
-	
+	private double speed;
+	private int range;
+
 	public String toString() {
-		return "Jet Model: " + getModel() + ", Speed: " + getSpeed() + " mph " + "Range: " + getRange()
-		+ " mi Price: $" + getPrice() + "]\n";
+		return "Jet Model: " + getModel() + ", Speed: " + getSpeed() + " mph " + "Range: " + getRange() + " mi Price: $"
+				+ getPrice() + "]\n";
 	}
 
 	private long price;
-	
+
 	public Jet(String model, double speed, int range, long price) {
 		super();
 		this.model = model;
@@ -19,15 +19,14 @@ public abstract class Jet {
 		this.range = range;
 		this.price = price;
 	}
-	
+
 	public Jet() {
-		
+
 	}
 
-
-	public void fly() {
+	public void fly(double t) {
 	}
-	
+
 	public String getModel() {
 		return model;
 	}
@@ -62,8 +61,7 @@ public abstract class Jet {
 
 	public double getSpeedInMach(double s) {
 		return s;
-		
+
 	}
-	
 
 }

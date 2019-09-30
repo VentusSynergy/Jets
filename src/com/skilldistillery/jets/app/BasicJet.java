@@ -2,19 +2,25 @@ package com.skilldistillery.jets.app;
 
 public class BasicJet extends Jet {
 
+	public BasicJet() {
+
+	}
+
 	public BasicJet(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
 	}
 
-	public void fly(double speed, int range) {
-		
-		
-		
+	@Override
+	public void fly(double t) {
+		super.fly(t);
+		System.out.println("Flight time: " + t + " hours\n");
+
 	}
 
-//	public String toString() {
-//		return "Basic Jet Model: " + getModel() + ", Speed: " + getSpeed() + " mph Range: " + getRange()
-//		+ " mi Price: $" + getPrice() + "]\n";
-//	}
+	@Override
+	public String toString() {
+		return "BASIC JET | Model " + getModel() + ", Speed: " + getSpeed() + " mph " + "Range: " + getRange() + " mi Price: $"
+				+ getPrice() + "]\n";
+	}
 
 }

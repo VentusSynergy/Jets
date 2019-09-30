@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AirField {
-	static List<Jet> jets = new ArrayList<>();
+	private static List<Jet> jets = new ArrayList<>();
+	private double t;
 
 	public AirField() {
 
@@ -106,51 +107,37 @@ public class AirField {
 	public void deleteJet() {
 		Scanner sc = new Scanner(System.in);
 		int input;
+		int id = 1;
 
 		System.out.println("Choose by index to delete jet :( ");
+		for(int i = 0; i < jets.size(); i ++) {
+			System.out.println("I.D. Number: " + id + " " + jets.get(i));
+			id++;
+		}
 		input = sc.nextInt();
+		input = input - 1;
 		jets.remove(input);
 		JetsApplication.displayUserMenu();
 
 	}
 
+	public void insertToFly() {
+		FighterJet f = new FighterJet();
+
+		for (int i = 0; i < jets.size(); i++) {
+			double s = jets.get(i).getSpeed();
+			int r = jets.get(i).getRange();
+			t = r / s;
+			int rt = (int) (t * 10);
+			t = (double) rt;
+			t = t / 10;
+			System.out.print(jets.get(i));
+			f.fly(t);
+
+
+		}
+		JetsApplication.displayUserMenu();
+
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
